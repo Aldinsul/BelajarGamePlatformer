@@ -3,4 +3,5 @@
 
 *.jpg binary
 *.png binary
-*.png.import binary
+*.mp3.import binary
+*.ogg.import binary
