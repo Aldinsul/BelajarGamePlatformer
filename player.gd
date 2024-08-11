@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var health = 10
+const SAVE_PATH = "res://savegame.bin"
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -38,8 +39,16 @@ func _physics_process(delta):
 		anim.play("fall")
 	move_and_slide()
 
-	if health <= 0:
+	if Game.PlayerHP <= 0:
 		queue_free()
 		get_tree().change_scene_to_file("res://main.tscn")
+		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+		var data : Dictionary = {
+			"PlayerHP": 10,
+			"Gold": 0,
+		}
+		var jstr = JSON.stringify(data)
+		file.store_line(jstr)
+	
 		
 

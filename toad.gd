@@ -7,6 +7,7 @@ var chase = false
 
 func _ready():
 	get_node("AnimatedSprite2D").play("idle")
+	
 func _physics_process(delta):
 	# Add the gravity.
 	velocity.y += gravity * delta
@@ -40,11 +41,13 @@ func _on_playerkill_body_entered(body):
 	
 func _on_playercollision_body_entered(body):
 	if body.name == "player":
-		body.health -= 3
+		Game.PlayerHP -= 3
 		death()
 
 #fungsi mengeksekusi animasi mati
 func death():
+	Game.Gold += 5
+	Utils.SaveGame()
 	chase = false 
 	get_node("AnimatedSprite2D").play("death")
 	await get_node("AnimatedSprite2D").animation_finished

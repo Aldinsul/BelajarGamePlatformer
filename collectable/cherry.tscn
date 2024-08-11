@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnoioojtl6cnq"]
+
+[ext_resource type="Texture2D" uid="uid://ds07aynabk34u" path="res://asset/character/cherry/cherry-1.png" id="1_a1dnk"]
+[ext_resource type="Texture2D" uid="uid://b7oydegjx4el1" path="res://asset/character/cherry/cherry-2.png" id="2_wdxra"]
+[ext_resource type="Texture2D" uid="uid://c3iyjjjegtoqi" path="res://asset/character/cherry/cherry-3.png" id="3_wv40f"]
+[ext_resource type="Texture2D" uid="uid://cdeg08l3yad2m" path="res://asset/character/cherry/cherry-4.png" id="4_wn81w"]
+[ext_resource type="Texture2D" uid="uid://c1gukkk7rns8l" path="res://asset/character/cherry/cherry-5.png" id="5_af1yl"]
+[ext_resource type="Texture2D" uid="uid://c7ayjgpb13ftm" path="res://asset/character/cherry/cherry-6.png" id="6_cfe4q"]
+[ext_resource type="Texture2D" uid="uid://1rtv5vwfvbyk" path="res://asset/character/cherry/cherry-7.png" id="7_gu6vv"]
+
+[sub_resource type="GDScript" id="GDScript_cmip5"]
+script/source = "extends Area2D
+
+
+
+func _on_body_entered(body):
+	if body.name == \"player\":
+		Game.Gold += 2
+		var tween = get_tree().create_tween()
+		var tween1 = get_tree().create_tween()
+		tween.tween_property(self, \"position\", position - Vector2(0,25), 0.3)
+		tween1.tween_property(self, \"modulate:a\", 0, 0.3)
+		tween.tween_callback(queue_free)
+
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_173fq"]
+radius = 4.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqo8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a1dnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wdxra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wv40f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wn81w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_af1yl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cfe4q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gu6vv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = SubResource("GDScript_cmip5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_173fq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 1)
+scale = Vector2(0.607143, 0.535714)
+sprite_frames = SubResource("SpriteFrames_vqo8g")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.443525
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
