@@ -125,7 +125,7 @@ shape = SubResource("RectangleShape2D_a1m0y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rmd0x")
-animation = &"death"
+animation = &"idle"
 
 [node name="Playerdetection" type="Area2D" parent="."]
 

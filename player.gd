@@ -50,5 +50,8 @@ func _physics_process(delta):
 		var jstr = JSON.stringify(data)
 		file.store_line(jstr)
 	
+	if Game.Gold >= 10:
+		get_tree().change_scene_to_file("res://endscreen.tscn")
+	
 		
 
