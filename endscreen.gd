@@ -14,3 +14,4 @@ func _on_button_pressed():
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
 	get_tree().change_scene_to_file("res://main.tscn")
+

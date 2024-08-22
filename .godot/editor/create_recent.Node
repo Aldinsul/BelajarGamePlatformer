@@ -1,8 +1,10 @@
-Button
+RichTextLabel
 Label
+Button
+Sprite2D
+ParallaxBackground
 CollisionShape2D
 Area2D
-ParallaxBackground
 TileMap
 Node2D
 AnimatedSprite2D
@@ -11,5 +13,3 @@ CharacterBody2D
 ParallaxLayer
 AnimationTree
 AnimationPlayer
-Camera2D
-Panel

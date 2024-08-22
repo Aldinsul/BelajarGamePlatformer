@@ -35,10 +35,12 @@ func _on_playerdetection_body_exited(body):
 	if body.name == "player":
 		chase = false 
 
+#frog mati saat di injak
 func _on_playerkill_body_entered(body):
 	if body.name == "player":
 		death()
 	
+#Player Terkena damage
 func _on_playercollision_body_entered(body):
 	if body.name == "player":
 		Game.PlayerHP -= 3

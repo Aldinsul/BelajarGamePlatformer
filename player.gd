@@ -38,10 +38,10 @@ func _physics_process(delta):
 	if velocity.y > 0:
 		anim.play("fall")
 	move_and_slide()
-
+	#menu Game over
 	if Game.PlayerHP <= 0:
 		queue_free()
-		get_tree().change_scene_to_file("res://main.tscn")
+		get_tree().change_scene_to_file("res://endscreen.tscn")
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data : Dictionary = {
 			"PlayerHP": 10,
@@ -50,8 +50,7 @@ func _physics_process(delta):
 		var jstr = JSON.stringify(data)
 		file.store_line(jstr)
 	
-	if Game.Gold >= 10:
-		get_tree().change_scene_to_file("res://endscreen.tscn")
-	
-		
+	#menu Menang
+	if Game.Gold >= 25:
+		get_tree().change_scene_to_file("res://win_scene.tscn")
 

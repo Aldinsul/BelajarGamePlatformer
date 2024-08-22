@@ -13,6 +13,7 @@ offset_left = 422.0
 offset_top = 187.0
 offset_right = 709.0
 offset_bottom = 293.0
+tooltip_text = "click to play the game"
 text = "PLAY"
 script = ExtResource("2_r3xio")
 
@@ -21,6 +22,7 @@ offset_left = 419.0
 offset_top = 396.0
 offset_right = 706.0
 offset_bottom = 502.0
+tooltip_text = "click to quit from the games"
 text = "QUIT"
 script = ExtResource("1_n143b")
 

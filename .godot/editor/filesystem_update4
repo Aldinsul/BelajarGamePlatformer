@@ -1,9 +1,12 @@
-res://deathCollision.gd
-res://world.tscn
+res://bg.tscn
 res://toad.tscn
+res://world.tscn
 res://collectable/cherry.tscn
 res://player.tscn
 res://death_collision.tscn
-res://endscreen.gd
-res://player.gd
 res://endscreen.tscn
+res://main.tscn
+res://toad.gd
+res://win.gd
+res://player.gd
+res://win_scene.tscn

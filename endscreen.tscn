@@ -10,7 +10,7 @@ offset_left = 400.0
 offset_top = 211.0
 offset_right = 717.0
 offset_bottom = 351.0
-text = "SELAMAT ANDA MENANG"
+text = "YOU LOSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
